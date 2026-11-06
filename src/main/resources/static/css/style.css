@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: #f4f6f4; color: #2b2b2b; }
+.header { background: #668066; color: #fff; padding: 14px 24px; font-size: 28px; font-weight: 700; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+h2 { text-align: center; color: #3d5a3d; font-size: 30px; margin: 10px 0 20px; }
+.actions { margin-bottom: 12px; }
+.btn { display: inline-block; background: #3d5a3d; color: #fff; border: none; padding: 8px 18px;
+    border-radius: 6px; text-decoration: none; cursor: pointer; font-size: 14px; margin-right: 6px; }
+.btn:hover { background: #2c442c; }
+.btn-secondary { background: #888; }
+table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.12); }
+thead th { background: #3d5a3d; color: #fff; padding: 12px 10px; text-align: left; font-size: 14px; }
+tbody td { padding: 12px 10px; border-bottom: 1px solid #e3e8e3; font-size: 14px; }
+tbody tr:hover { background: #eef3ee; }
+.grade { font-weight: 700; }
+.grade-A { color: #1b7f3b; } .grade-B { color: #2a6fb0; }
+.grade-D { color: #c47a00; } .grade-F { color: #c0392b; }
+.card { background: #fff; max-width: 520px; margin: 0 auto; padding: 24px; border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+label { display: block; margin: 14px 0 6px; font-weight: 600; }
+input, select { width: 100%; padding: 9px 10px; border: 1px solid #bbb; border-radius: 6px; font-size: 14px; }
+.error { color: #c0392b; font-size: 13px; margin-top: 4px; }
+.empty { text-align: center; padding: 20px; color: #777; }

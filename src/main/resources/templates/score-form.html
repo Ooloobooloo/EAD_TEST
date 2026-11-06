@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Score</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="header">Student Information System</div>
+<div class="container">
+    <h2>Add Score</h2>
+    <div class="card">
+        <form th:action="@{/scores}" th:object="${scoreForm}" method="post">
+            <label for="studentId">Student</label>
+            <select id="studentId" th:field="*{studentId}">
+                <option value="">-- Select student --</option>
+                <option th:each="st : ${students}" th:value="${st.id}"
+                        th:text="${st.studentCode + ' - ' + st.fullName}"></option>
+            </select>
+            <div class="error" th:if="${#fields.hasErrors('studentId')}" th:errors="*{studentId}"></div>
+
+            <label for="subjectId">Subject</label>
+            <select id="subjectId" th:field="*{subjectId}">
+                <option value="">-- Select subject --</option>
+                <option th:each="sj : ${subjects}" th:value="${sj.id}"
+                        th:text="${sj.subjectName + ' (' + sj.credit + ' credits)'}"></option>
+            </select>
+            <div class="error" th:if="${#fields.hasErrors('subjectId')}" th:errors="*{subjectId}"></div>
+
+            <label for="score1">Score 1</label>
+            <input id="score1" type="number" step="0.1" min="0" max="10" th:field="*{score1}">
+            <div class="error" th:if="${#fields.hasErrors('score1')}" th:errors="*{score1}"></div>
+
+            <label for="score2">Score 2</label>
+            <input id="score2" type="number" step="0.1" min="0" max="10" th:field="*{score2}">
+            <div class="error" th:if="${#fields.hasErrors('score2')}" th:errors="*{score2}"></div>
+
+            <div style="margin-top:20px">
+                <button class="btn" type="submit">Save</button>
+                <a class="btn btn-secondary" th:href="@{/}">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

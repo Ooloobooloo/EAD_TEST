@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="header">Student Information System</div>
+<div class="container">
+    <h2>Add Student</h2>
+    <div class="card">
+        <form th:action="@{/students}" th:object="${student}" method="post">
+            <label for="studentCode">Student Code</label>
+            <input id="studentCode" type="text" th:field="*{studentCode}" maxlength="20">
+            <div class="error" th:if="${#fields.hasErrors('studentCode')}" th:errors="*{studentCode}"></div>
+
+            <label for="fullName">Full Name</label>
+            <input id="fullName" type="text" th:field="*{fullName}" maxlength="100">
+            <div class="error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+
+            <label for="address">Address</label>
+            <input id="address" type="text" th:field="*{address}" maxlength="255">
+
+            <div style="margin-top:20px">
+                <button class="btn" type="submit">Save</button>
+                <a class="btn btn-secondary" th:href="@{/}">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

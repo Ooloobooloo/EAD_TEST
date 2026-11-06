@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="header">Student Information System</div>
+<div class="container">
+    <h2>Student Information</h2>
+    <div class="actions">
+        <a class="btn" th:href="@{/students/new}">+ Student</a>
+        <a class="btn" th:href="@{/scores/new}">+ Score</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Student Id</th>
+            <th>Student Name</th>
+            <th>Subject Name</th>
+            <th>Score 1</th>
+            <th>Score 2</th>
+            <th>Credit</th>
+            <th>Grade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="s, st : ${scores}">
+            <td th:text="${st.count}">1</td>
+            <td th:text="${s.student.studentCode}">2007A10</td>
+            <td th:text="${s.student.fullName}">Nguyen Van A</td>
+            <td th:text="${s.subject.subjectName}">Java Programming</td>
+            <td th:text="${#numbers.formatDecimal(s.score1, 1, 1)}">8.5</td>
+            <td th:text="${#numbers.formatDecimal(s.score2, 1, 1)}">7.0</td>
+            <td th:text="${s.subject.credit}">4</td>
+            <td><span class="grade" th:classappend="'grade-' + ${s.grade}" th:text="${s.grade}">B</span></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(scores)}">
+            <td colspan="8" class="empty">No data</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
